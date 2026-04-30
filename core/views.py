@@ -46,18 +46,18 @@ def logout_view(request):
 def superadmin_dashboard(request):
     if request.user.profile.role != 'superadmin':
         return _role_redirect(request.user)
-    return render(request, 'dashboard_superadmin.html', {'user': request.user})
+    return render(request, 'dashboard/superadmin.html', {'user': request.user})
 
 
 @login_required
 def admin_dashboard(request):
     if request.user.profile.role != 'admin':
         return _role_redirect(request.user)
-    return render(request, 'dashboard_admin.html', {'user': request.user})
+    return render(request, 'dashboard/admin.html', {'user': request.user})
 
 
 @login_required
 def cashier_dashboard(request):
     if request.user.profile.role != 'cashier':
         return _role_redirect(request.user)
-    return render(request, 'dashboard_cashier.html', {'user': request.user})
+    return render(request, 'dashboard/cashier.html', {'user': request.user})
